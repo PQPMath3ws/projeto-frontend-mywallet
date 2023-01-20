@@ -5,8 +5,8 @@ import Context from "../context/Context";
 
 const IsLoggedIn = () => {
     const { token } = useContext(Context);
-    if (token) return (<Navigate to="home"></Navigate>);
-    else return (<Navigate to="login"></Navigate>)
+    if (token) return (<Navigate to="/home"></Navigate>);
+    else return (<Navigate to="/login"></Navigate>)
 };
 
 export default IsLoggedIn;

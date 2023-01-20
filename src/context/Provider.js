@@ -7,6 +7,7 @@ const Provider = ({ children }) => {
 
     return (
         <Context.Provider value={{
+            name: context.name,
             token: context.token,
         }}>
             {children}
