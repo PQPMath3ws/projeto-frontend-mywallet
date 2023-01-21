@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Provider from './context/Provider';
 
 import IsLoggedIn from "./routes/IsLoggedIn";
+import Login from './routes/Login';
 
 import GlobalStyle from './styles/GlobalStyle';
 import ResetStyle from "./styles/ResetStyle";
@@ -19,6 +20,7 @@ root.render(
                 <GlobalStyle></GlobalStyle>
                 <Routes>
                     <Route path="/" element={<IsLoggedIn></IsLoggedIn>}></Route>
+                    <Route path="/login" element={<Login></Login>}></Route>
                 </Routes>
             </BrowserRouter>
         </Provider>
