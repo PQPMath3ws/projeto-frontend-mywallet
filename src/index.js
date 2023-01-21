@@ -6,6 +6,7 @@ import Provider from './context/Provider';
 
 import IsLoggedIn from "./routes/IsLoggedIn";
 import Login from './routes/Login';
+import Register from './routes/Register';
 
 import GlobalStyle from './styles/GlobalStyle';
 import ResetStyle from "./styles/ResetStyle";
@@ -21,6 +22,7 @@ root.render(
                 <Routes>
                     <Route path="/" element={<IsLoggedIn></IsLoggedIn>}></Route>
                     <Route path="/login" element={<Login></Login>}></Route>
+                    <Route path="/cadastro" element={<Register></Register>}></Route>
                 </Routes>
             </BrowserRouter>
         </Provider>
