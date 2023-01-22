@@ -109,7 +109,7 @@ const Home = () => {
                                     SALDO
                                 </HomeStyle.BalanceText>
                                 <HomeStyle.MovimentationPriceText isEntry={movimentations.reduce((a, b) => b.isEntry ? a + b.value : a - b.value, 0) >= 0}>
-                                    {movimentations.reduce((a, b) => b.isEntry ? a + b.value : a - b.value, 0)}
+                                    {Number(movimentations.reduce((a, b) => b.isEntry ? a + b.value : a - b.value, 0)).toFixed(2)}
                                 </HomeStyle.MovimentationPriceText>
                             </HomeStyle.TotalMovimentationDiv>
                         </HomeStyle.MovimentationsDivContent>}
