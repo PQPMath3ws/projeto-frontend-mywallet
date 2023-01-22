@@ -8,6 +8,7 @@ import IsLoggedIn from "./routes/IsLoggedIn";
 import Home from './routes/Home';
 import Login from './routes/Login';
 import NewIsEntry from './routes/NewIsEntry';
+import NewIsNotEntry from './routes/NewIsNotEntry';
 import Register from './routes/Register';
 
 import GlobalStyle from './styles/GlobalStyle';
@@ -27,6 +28,7 @@ root.render(
                     <Route path="/cadastro" element={<Register></Register>}></Route>
                     <Route path="/home" element={<Home></Home>}></Route>
                     <Route path="/nova-entrada" element={<NewIsEntry></NewIsEntry>}></Route>
+                    <Route path="/nova-saida" element={<NewIsNotEntry></NewIsNotEntry>}></Route>
                 </Routes>
             </BrowserRouter>
         </Provider>
