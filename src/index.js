@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Provider from './context/Provider';
 
 import IsLoggedIn from "./routes/IsLoggedIn";
+import Home from './routes/Home';
 import Login from './routes/Login';
 import Register from './routes/Register';
 
@@ -23,6 +24,7 @@ root.render(
                     <Route path="/" element={<IsLoggedIn></IsLoggedIn>}></Route>
                     <Route path="/login" element={<Login></Login>}></Route>
                     <Route path="/cadastro" element={<Register></Register>}></Route>
+                    <Route path="/home" element={<Home></Home>}></Route>
                 </Routes>
             </BrowserRouter>
         </Provider>
