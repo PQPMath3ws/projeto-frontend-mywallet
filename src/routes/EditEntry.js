@@ -5,9 +5,9 @@ import { useNavigate, useParams, Navigate } from "react-router-dom";
 
 import Context from "../context/Context";
 
-import EditNotEntryStyle from "../styles/EditNotEntryStyle";
+import EditEntryStyle from "../styles/EditEntryStyle";
 
-const EditNotEntry = () => {
+const EditEntry = () => {
     const [value, setValue] = useState("");
     const [description, setDescription] = useState("");
     const [isTryingSaveMovimentation, setIsTryingSaveMovimentation] = useState(false);
@@ -43,7 +43,7 @@ const EditNotEntry = () => {
                 },
             });
             if (request.statusText === "OK") {
-                alert("Movimentação de saída editada com sucesso!");
+                alert("Movimentação de entrada editada com sucesso!");
                 navigate("/home");
             } else {
                 alert("Preencha todos os dados corretamente antes de continuar!");
@@ -56,7 +56,7 @@ const EditNotEntry = () => {
 
     useEffect(() => {
         getMovimentationById().then(data => {
-            if (data.isEntry) navigate("/home");
+            if (!data.isEntry) navigate("/home");
             setValue(data.value);
             setDescription(data.description);
         }).catch(_ => navigate("/"));
@@ -65,18 +65,18 @@ const EditNotEntry = () => {
     if (!context.token || !id) return (<Navigate to="/"></Navigate>);
 
     return (
-        <EditNotEntryStyle.EditNotEntryDiv>
-            <EditNotEntryStyle.EditNotEntryContainer>
-                <EditNotEntryStyle.TitleText>Editar saída</EditNotEntryStyle.TitleText>
-                <EditNotEntryStyle.EditMovimentationFormDiv>
-                    <EditNotEntryStyle.EditMovimentationInput onChange={(input) => Number(input.target.value).toString() === "NaN" ? null : setValue(input.target.value.includes(".") ? `${input.target.value.split(".")[0]}.${input.target.value.split(".")[1].slice(0, 2)}` : input.target.value)} placeholder="Valor" type="text" value={value}></EditNotEntryStyle.EditMovimentationInput>
-                    <EditNotEntryStyle.EditMovimentationInput onChange={(input) => setDescription(input.target.value)} placeholder="Descrição" type="text" value={description}></EditNotEntryStyle.EditMovimentationInput>
-                    <EditNotEntryStyle.EditMovimentationButton onClick={editMovimentation}>{isTryingSaveMovimentation ? <ThreeDots color="#FFFFFF" width="100%" height="14">
-                    </ThreeDots> : "Atualizar saída"}</EditNotEntryStyle.EditMovimentationButton>
-                </EditNotEntryStyle.EditMovimentationFormDiv>
-            </EditNotEntryStyle.EditNotEntryContainer>
-        </EditNotEntryStyle.EditNotEntryDiv>
+        <EditEntryStyle.EditEntryDiv>
+            <EditEntryStyle.EditEntryContainer>
+                <EditEntryStyle.TitleText>Editar entrada</EditEntryStyle.TitleText>
+                <EditEntryStyle.EditMovimentationFormDiv>
+                    <EditEntryStyle.EditMovimentationInput onChange={(input) => Number(input.target.value).toString() === "NaN" ? null : setValue(input.target.value.includes(".") ? `${input.target.value.split(".")[0]}.${input.target.value.split(".")[1].slice(0, 2)}` : input.target.value)} placeholder="Valor" type="text" value={value}></EditEntryStyle.EditMovimentationInput>
+                    <EditEntryStyle.EditMovimentationInput onChange={(input) => setDescription(input.target.value)} placeholder="Descrição" type="text" value={description}></EditEntryStyle.EditMovimentationInput>
+                    <EditEntryStyle.EditMovimentationButton onClick={editMovimentation}>{isTryingSaveMovimentation ? <ThreeDots color="#FFFFFF" width="100%" height="14">
+                    </ThreeDots> : "Atualizar entrada"}</EditEntryStyle.EditMovimentationButton>
+                </EditEntryStyle.EditMovimentationFormDiv>
+            </EditEntryStyle.EditEntryContainer>
+        </EditEntryStyle.EditEntryDiv>
     );
 };
 
-export default EditNotEntry;
+export default EditEntry;

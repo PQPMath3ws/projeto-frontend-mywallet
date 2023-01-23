@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Provider from './context/Provider';
 
+import EditEntry from './routes/EditEntry';
 import EditNotEntry from './routes/EditNotEntry';
 import IsLoggedIn from "./routes/IsLoggedIn";
 import Home from './routes/Home';
@@ -30,6 +31,7 @@ root.render(
                     <Route path="/home" element={<Home></Home>}></Route>
                     <Route path="/nova-entrada" element={<NewIsEntry></NewIsEntry>}></Route>
                     <Route path="/nova-saida" element={<NewIsNotEntry></NewIsNotEntry>}></Route>
+                    <Route path="/editar-entrada/:id" element={<EditEntry></EditEntry>}></Route>
                     <Route path="/editar-saida/:id" element={<EditNotEntry></EditNotEntry>}></Route>
                 </Routes>
             </BrowserRouter>
